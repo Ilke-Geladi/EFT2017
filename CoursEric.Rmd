@@ -108,12 +108,12 @@ AbdParacou <- Paracou618.MC$Ns[Paracou618.MC$Ns>0] # a lot of singltons and doub
 #plot(as.AbdVector((AbdParacou)))
 ```
 
-Asymptotic diversity profiles reveal Paracou to be more diverse than BCI \ref@(fig:dp). 
-As can be seen on \ref@(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
+Asymptotic diversity profiles reveal Paracou to be more diverse than BCI \@ref(fig:dp). 
+As can be seen on \@ref(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
 This is confirmed by calculating the Hill numbers for both BCI and Paracou. It was found that Paracou was more diverse at all order's of q where for when q equals 0, 1 and 2, the corresponding Hill numbers for Paracou were 314, 133 and 72, and for BCI were 238, 71 and 38. 
 
 
-```{r dp, echo=FALSE, fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Number of simulations was set to 10 in the interest of saving time."}
+```{r dp, echo=FALSE, fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Number of simulations was set to 10 in the interest of saving time.", results='hide'}
 ####Part 3: Diversity Profiles
 #BCI#
 #Estimate diversity, with a coincidence envelope
