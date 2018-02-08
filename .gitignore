@@ -1,33 +1,81 @@
 # History files
 .Rhistory
 .Rapp.history
-
 # Session Data files
 .RData
-
 # Example code in package build process
 *-Ex.R
-
 # Output files from R CMD build
 /*.tar.gz
-
 # Output files from R CMD check
 /*.Rcheck/
-
 # RStudio files
 .Rproj.user/
-
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
-
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
-
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/
-
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+.Rproj.user
+CoursEric.bbl
+references.bib
+#MyFiles
+references.html
+results.html
+types-de-document.html
+markdown.html
+materials-and-methods.html
+CoursEric.docx
+CoursEric.fdb_latexmk
+CoursEric.log
+CoursEric.out
+CoursEric.aux
+CoursEric.blg
+CoursEric.fls
+CoursEric.tex
+CoursEric.toc
+CoursEric_files
+My Files
+NouveauRMarkdown.PNG
+Trytogetinfo
+Untitled
+acta-naturae.csl
+code.html
+discussion.html
+introduction.html
+libs
+AntClearingDiff.png
+AntLandConversion1.png
+Geladi_2018_Ants_as_bioindicators.Rmd
+Geladi_2018_Ants_as_bioindicators.aux
+Geladi_2018_Ants_as_bioindicators.fdb_latexmk
+Geladi_2018_Ants_as_bioindicators.fls
+Geladi_2018_Ants_as_bioindicators.log
+Geladi_2018_Ants_as_bioindicators.out
+Geladi_2018_Ants_as_bioindicators.tex
+Geladi_2018_Ants_as_bioindicators.toc
+Geladi_Paracou_BCI_Biodiv
+Justtogetinfo
+Template
+Template.Rmd
+Template.aux
+Template.fdb_latexmk
+Template.fls
+Template.log
+Template.out
+Template.tex
+Template.toc
+antplanttable.png
+antrehabage.png
+antspeciesabundance.png
+m
+Geladi_Ant_bioindicator
+Geladi_Ant_bioindicator.pdf
+Geladi_Ant_bioindicator.zip
+library.bib
