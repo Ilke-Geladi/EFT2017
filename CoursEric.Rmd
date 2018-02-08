@@ -14,24 +14,24 @@ corrauthor:
     email: ilke.geladi@ecofog.gf
     url: http://www.ecofog.gf/spip.php?article47
 abstract: >
-  BCI is one of the best-studeid forest plots on earth, however we must consider the valuability of other similar forest plots such as Paracou in French Guiana. Here, we compare the diversity between the two through diversity profiles and rarefication of the data. It was found that Paracou is more diverse than BCI. An increased diversity in a forest plot holds potential for novel and unique studies that BCI does not offer. 
+  BCI is one of the best-studied forest plots on earth, however we must consider the value of other similar forest plots such as Paracou in French Guiana. Here, we compare the diversity between the two through diversity profiles and rarefication of the data. It was found that Paracou is more diverse than BCI. An increased diversity in a forest plot holds potential for novel and unique studies that BCI does not offer. 
 keywords: [Diversity, BCI, Paracou, Diversity Profiles, Hill numbers]
 journalinfo: Hal 00679993
 archive: DOI xxxx
 date: "`r format(Sys.time(), '%d %B %Y')`"
 preamble: >
   \usepackage{amsmath}
-bibliography: ../library.bib
+bibliography: ../library.bib #.bib #.bib #references #library  #../library #.bib
 csl: nature.csl
 lang: english #french
 keywordlabel: Keywords #Mots-clés  Keywords
 corrauthorlabel: Contact # Corresponding author
 output:
-  #bookdown::gitbook
+  bookdown::gitbook
   #bookdown::word_document2
-  bookdown::pdf_book:
-    base_format: EcoFoG::article
-    keep_tex: TRUE
+  #bookdown::pdf_book:
+    #base_format: EcoFoG::article
+    #keep_tex: TRUE
 ---
 
 <!-- Options de knitr et de R (librairies, ...) --> 
@@ -53,8 +53,8 @@ Library(c("entropart", "iNEXT", "vegan"))
 <!-- Début du document ci-dessous --> 
 
 # Introduction
-Tropical rainforests are the most biodiverse ecosystems in the world, housing two to three thirds of the species in the world [@Laurance2007; @Noss1999; @Bierregaard1992]. 
-Reliable information on the status and condition in each forest studied, including the diversity of trees, is crucial to expanding our knowledge in fields such as forest dynamics, community ecology, and biotic interactions to ensure the best possible management and conservation strategies [@Noss1999; @Condit1995]. 
+Tropical rainforests are the most biodiverse ecosystems in the world, housing two to three thirds of the species in the world [@Laurance2007c; @Noss1999; @Bierregaard1992]. 
+Reliable information on the status and condition in each forest studied, including the diversity of trees, is crucial to expanding our knowledge in fields such as forest dynamics, community ecology, and biotic interactions to ensure the best possible management and conservation strategies [@Condit1995; @Noss1999]. 
 However, to collect such knowledge, long-term studies are necessary as they provide a more wholistic view through continuous monitoring and data on patterns and rates of change in forest ecosystems [@comiskey1998forest]. 
 Permanent forest plots are widely used for these sorts of studies [@comiskey1998forest; @Condit1995], and many have been established in various ecosystems worldwide [@Condit2014]. 
 
@@ -73,12 +73,12 @@ Habitats with increased diversity, such as Paracou, might increase potential res
 ##Study Sites
 
 ###BCI
-For the first study site, we used tree diversity data from Barro Colorado Island (BCI) [@croat1978flora], which can be found in the package "vegan" [@oksanen2010vegan].
+For the first study site, we used tree diversity data from Barro Colorado Island (BCI) [@croat1978flora], which can be found in the "vegan" package[@oksanen2010vegan].
 BCI became an island with the damming of the Chagres River in Panama between 1911 and 1914 and was subsequently named a biological reserve in 1923, which is currently supervised by the Smithsonian Tropical Research Institute (STRI) [@croat1978flora; @leigh1999tropical]. 
 It is a 1,560-hectare island that welcomes hundreds scientists from around the world each year [@croat1978flora]. 
 
 ###Paracou
-For the second study site, we used tree diversity data from Paracou [@Degen2006], which can be found in the package "entropart" [@Marcon2014c]. 
+For the second study site, we used tree diversity data from Paracou [@Degen2006], which can be found in the "entropart" package [@Marcon2014c]. 
 Paracou is located in French Guiana, and has been used since 1982 for basic ecological research on lowland rainforest [@Gourlet-Fleury2004].
 The site is more than 1000 hectares large and trees have been fully mapped as Paracou was used as an experimental design to study the impact of disturbances on forest stands and tree populations [@Gourlet-Fleury2004].
 
@@ -88,7 +88,7 @@ To do this we used the "CommunityProfile" function in the "entropart" package [@
 Hill Numbers were then calculated when q is equal to 0, 1 and 2 using the "Diversity" function [@Marcon2014c]. 
 
 Next, we rarified the data to the same coverage as an alternative method to compare the two communities whilst accounting for the difference in study site size. 
-Through this method, we simulate the decrease in the size of the large community, in this case Paracou, to reduce it to the size of the small community, BCI [@marcon:cel-01205813]. 
+Through this method, we simulate the decrease in the size of the large community, in this case Paracou, to reduce it to the size of the small community, BCI [@marcon2017].
 In the process, we loose some data, however it is better to loose some data than have a lot of uncertainty, which is the case when estimating the asymptotic diversity.
 To do so, we used the function "estimateD"" of the package iNEXT [@hsieh2016inext], and compared the data for values of diveristy of q=0, 1 and 2, rarified to the same coverage of 80%.
 All above analyses and calculations were performed in R [@R].
@@ -108,12 +108,12 @@ AbdParacou <- Paracou618.MC$Ns[Paracou618.MC$Ns>0] # a lot of singltons and doub
 #plot(as.AbdVector((AbdParacou)))
 ```
 
-Asymptotic diversity profiles reveal Paracou to be more diverse than BCI \ref@(fig:dp). 
-As can be seen on \ref@(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
+Asymptotic diversity profiles reveal Paracou to be more diverse than BCI (See \@ref(fig:dp)). 
+As can be seen in Figure \@ref(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
 This is confirmed by calculating the Hill numbers for both BCI and Paracou. It was found that Paracou was more diverse at all order's of q where for when q equals 0, 1 and 2, the corresponding Hill numbers for Paracou were 314, 133 and 72, and for BCI were 238, 71 and 38. 
 
 
-```{r dp, echo=FALSE, fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Number of simulations was set to 10 in the interest of saving time."}
+```{r dp, echo=FALSE, results='hide', fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Number of simulations was set to 10 in the interest of saving time."}
 ####Part 3: Diversity Profiles
 #BCI#
 #Estimate diversity, with a coincidence envelope
@@ -161,9 +161,9 @@ NewP <- estimateD(as.numeric(AbdParacou), base = "coverage", level = 0.8)
 
 #Discussion
 Diversity Profiles show that tree diversity is more neutrally diverse in Paracou than in BCI, as the Paracou curve is above the the BCI curve. 
-It can further be said that BCI and Paracou are separable as the communities diversity profiles do not intersect [@marcon:cel-01205813]. 
+It can further be said that BCI and Paracou are separable as the communities diversity profiles do not intersect [@marcon2017].
 There has been much debate as to which diversity indices to use as there exist many.
-However, diversity profiles play an important role in converging these indices by portraying them graphically as the value of diversity is plotted in function to the order q, which represent different indices [@Tothmeresz1995; @marcon:cel-01205813]. 
+However, diversity profiles play an important role in converging these indices by portraying them graphically as the value of diversity is plotted in function to the order q, which represent different indices [@Tothmeresz1995; @marcon2017].
 The raw result of the Hill numbers calculated support the above conclusion that Paracou is more diverse than BCI.
 Hill numbers provide many advantages over other frequent used measures of diversity, such as species richness, through incorporating both relative abundance and species richness, amongst other reasons [@Chao2014].
 Overall, diversity profiles and Hill numbers, which are two more reliable methods of calculating diversity, reveal that Paracou has a higher tree diversity than BCI. 
