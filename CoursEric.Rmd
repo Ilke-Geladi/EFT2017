@@ -21,7 +21,7 @@ archive: DOI xxxx
 date: "`r format(Sys.time(), '%d %B %Y')`"
 preamble: >
   \usepackage{amsmath}
-bibliography: ../library.bib
+bibliography: ../library
 csl: nature.csl
 lang: english #french
 keywordlabel: Keywords #Mots-clés  Keywords
@@ -79,6 +79,7 @@ It is a 1,560-hectare island that welcomes hundreds scientists from around the w
 
 ###Paracou
 For the second study site, we used tree diversity data from Paracou [@Degen2006], which can be found in the "entropart" package [@Marcon2014c]. 
+
 Paracou is located in French Guiana, and has been used since 1982 for basic ecological research on lowland rainforest [@Gourlet-Fleury2004].
 The site is more than 1000 hectares large and trees have been fully mapped as Paracou was used as an experimental design to study the impact of disturbances on forest stands and tree populations [@Gourlet-Fleury2004].
 
