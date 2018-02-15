@@ -23,16 +23,16 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
-<<<<<<< HEAD
 CoursEric.bbl
 references.bib
+
 #MyFiles
-references.html
-results.html
-types-de-document.html
-markdown.html
-materials-and-methods.html
-CoursEric.docx
+/references.html
+/results.html
+/types-de-document.html
+/markdown.html
+/materials-and-methods.html
+/CoursEric.docx
 CoursEric.fdb_latexmk
 CoursEric.log
 CoursEric.out
@@ -41,16 +41,16 @@ CoursEric.blg
 CoursEric.fls
 CoursEric.tex
 CoursEric.toc
-CoursEric_files
+/CoursEric_files
 My Files
 NouveauRMarkdown.PNG
 Trytogetinfo
 Untitled
 acta-naturae.csl
-code.html
-discussion.html
-introduction.html
-libs
+/code.html
+/discussion.html
+/introduction.html
+/libs
 AntClearingDiff.png
 AntLandConversion1.png
 Geladi_2018_Ants_as_bioindicators.Rmd
@@ -81,7 +81,3 @@ Geladi_Ant_bioindicator.pdf
 Geladi_Ant_bioindicator.zip
 library.bib
 CoursEric2.tex
-=======
-/*_files/
-
->>>>>>> f2bded94a436a09c8a9f93b358a8fa4711754938
