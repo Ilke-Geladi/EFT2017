@@ -16,12 +16,12 @@ corrauthor:
 abstract: >
   BCI is one of the best-studied forest plots on earth, however we must consider the value of other similar forest plots such as Paracou in French Guiana. Here, we compare the diversity between the two through diversity profiles and rarefication of the data. It was found that Paracou is more diverse than BCI. An increased diversity in a forest plot holds potential for novel and unique studies that BCI does not offer. 
 keywords: [Diversity, BCI, Paracou, Diversity Profiles, Hill numbers]
-journalinfo: Hal 00679993
-archive: DOI xxxx
+journalinfo: "\\ "
+archive: "\\ "
 date: "`r format(Sys.time(), '%d %B %Y')`"
 preamble: >
   \usepackage{amsmath}
-bibliography: ../library
+bibliography: library #.bib
 csl: nature.csl
 lang: english #french
 keywordlabel: Keywords #Mots-clés  Keywords
@@ -105,29 +105,23 @@ AbdBCI <- colSums(BCI)
 #plot(as.AbdVector(AbdBCI))
 #Paracou Data
 data(Paracou618) #Interested in Paracou618.MC$Ns
-AbdParacou <- Paracou618.MC$Ns[Paracou618.MC$Ns>0] # a lot of singltons and doubletons in Paracou, compared to BCI.
+AbdParacou <- Paracou618.MC$Ns[Paracou618.MC$Ns>0] # a lot of singletons and doubletons in Paracou, compared to BCI.
 #plot(as.AbdVector((AbdParacou)))
 ```
 
-Asymptotic diversity profiles reveal Paracou to be more diverse than BCI (See \@ref(fig:dp)). 
-As can be seen in Figure \@ref(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
-This is confirmed by calculating the Hill numbers for both BCI and Paracou. It was found that Paracou was more diverse at all order's of q where for when q equals 0, 1 and 2, the corresponding Hill numbers for Paracou were 314, 133 and 72, and for BCI were 238, 71 and 38. 
-
-
-```{r dp, echo=FALSE, results='hide', fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Number of simulations was set to 10 in the interest of saving time."}
+```{r dp, echo=FALSE, results='hide', fig.cap="Diversity Profiles for Paracou (top line) and BCI (bottom line). Confidence intervals are obtained by bootstrap from 1000 simulations."}
 ####Part 3: Diversity Profiles
 #BCI#
 #Estimate diversity, with a coincidence envelope
 ProfileBCI <- CommunityProfile(Diversity, AbdBCI, 
-              Correction="UnveilJ", NumberOfSimulations=10)
+              Correction="UnveilJ", NumberOfSimulations=1000)
 plot(ProfileBCI)
 #Paracou
-#Estimate diversity, with a coincidence envelope
+#Estimate diversity, with a confidence envelope
 ProfileParacou <- CommunityProfile(Diversity, AbdParacou, 
-              Correction="UnveilJ", NumberOfSimulations=10)
+              Correction="UnveilJ", NumberOfSimulations=1000)
 #Add Paracou to BCI plot with a legend
 CEnvelope(ProfileParacou)
-legend("topright", c("Bias Corrected", "Biased"), lty=c(1,3), inset=0.01)
 ```
 
 ```{r Hill, echo=FALSE}
@@ -148,8 +142,10 @@ rownames(table) <- c("BCI", "Paracou")
 table <- as.table(table)
 #table
 ```
+Asymptotic diversity profiles reveal Paracou to be more diverse than BCI (See \@ref(fig:dp)). 
+As can be seen in Figure \@ref(fig:dp), the Paracou diversity profile curve is above the BCI curve for all values of q.
+This is confirmed by calculating the Hill numbers for both BCI and Paracou. It was found that Paracou was more diverse at all order's of q where for when q equals 0, 1 and 2, the corresponding Hill numbers for Paracou were `r round(Paracouq0, 0)`, `r round(Paracouq1, 0)` and `r round(Paracouq2, 0)`, and for BCI were `r round(BCIq0, 0)`, `r round(BCIq1, 0)` and `r round(BCIq2, 0)`. 
 
-BCI and Paracou data rarified to the same coverage (80%) also reveals Paracou to have a greater diversity at order of diversities 0, 1 and 2 compared to BCI. Species richness (q=0) of Paracou (S=136) is almost double that of BCI (S=69). The exponential of Shannon's entropy index (q=1) of Paracou is 89, whereas that of BCI is only 46. Finally, when q=2 (the inverse of Simpson's concentration index), diversity of Paracou is once again almost double that of BCI where Paracou's is at 61 and BCI's at 31. 
 
 ```{r rarify, echo=FALSE}
 #Rarefaction
@@ -158,6 +154,10 @@ NewP <- estimateD(as.numeric(AbdParacou), base = "coverage", level = 0.8)
 #NewBCI
 #NewP
 ```
+
+BCI and Paracou data rarified to the same coverage (80%) also reveals Paracou to have a greater diversity at order of diversities 0, 1 and 2 compared to BCI. Species richness (q=0) of Paracou (S=`r round(NewP$qD[1], 0)`) is almost double that of BCI (S=`r round(NewBCI$qD[1], 0)`). The exponential of Shannon’s entropy index (q=1) of Paracou is `r round(NewP$qD[2], 0)`, whereas that of BCI is only `r round(NewBCI$qD[2], 0)`. Finally, when q=2 (the inverse of Simpson’s concentration index), diversity of Paracou is once again almost double that of BCI where Paracou’s is at `r round(NewP$qD[3], 0)` and BCI’s at `r round(NewBCI$qD[3], 0)`.
+
+
 
 
 #Discussion

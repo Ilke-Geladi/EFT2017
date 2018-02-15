@@ -114,8 +114,8 @@
 %	ARTICLE INFORMATION
 %----------------------------------------------------------------------------------------
 
-\JournalInfo{Hal 00679993} % Journal information
-\Archive{DOI xxxx} % Additional notes (e.g. copyright, DOI, review/research article)
+\JournalInfo{~} % Journal information
+\Archive{~} % Additional notes (e.g. copyright, DOI, review/research article)
 
 \PaperTitle{Comparing tree diversity between two forest plots, BCI and Paracou} % Article title
 
@@ -255,27 +255,27 @@ above analyses and calculations were performed in R \citep{R}.
 
 \section{Results}\label{results}
 
+\begin{figure}
+\centering
+\includegraphics{CoursEric_files/figure-latex/dp-1.pdf}
+\caption{\label{fig:dp}Diversity Profiles for Paracou (top line) and BCI
+(bottom line). Confidence intervals are obtained by bootstrap from 1000
+simulations.}
+\end{figure}
+
 Asymptotic diversity profiles reveal Paracou to be more diverse than BCI
 (See \ref{fig:dp}). As can be seen in Figure \ref{fig:dp}, the Paracou
 diversity profile curve is above the BCI curve for all values of q. This
 is confirmed by calculating the Hill numbers for both BCI and Paracou.
 It was found that Paracou was more diverse at all order's of q where for
 when q equals 0, 1 and 2, the corresponding Hill numbers for Paracou
-were 314, 133 and 72, and for BCI were 238, 71 and 38.
-
-\begin{figure}
-\centering
-\includegraphics{CoursEric_files/figure-latex/dp-1.pdf}
-\caption{\label{fig:dp}Diversity Profiles for Paracou (top line) and BCI
-(bottom line). Number of simulations was set to 10 in the interest of
-saving time.}
-\end{figure}
+were 315, 133 and 73, and for BCI were 239, 72 and 38.
 
 BCI and Paracou data rarified to the same coverage (80\%) also reveals
 Paracou to have a greater diversity at order of diversities 0, 1 and 2
 compared to BCI. Species richness (q=0) of Paracou (S=136) is almost
 double that of BCI (S=69). The exponential of Shannon's entropy index
-(q=1) of Paracou is 89, whereas that of BCI is only 46. Finally, when
+(q=1) of Paracou is 89, whereas that of BCI is only 47. Finally, when
 q=2 (the inverse of Simpson's concentration index), diversity of Paracou
 is once again almost double that of BCI where Paracou's is at 61 and
 BCI's at 31.
@@ -338,7 +338,7 @@ very interesting research opportunities compared to BCI.
 %----------------------------------------------------------------------------------------
 
 \bibliographystyle{mee}
-\bibliography{../library}
+\bibliography{library}
 
 %----------------------------------------------------------------------------------------
 
